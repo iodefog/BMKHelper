@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   s.source_files  = "BMKSearchHelper/{h.m}", "BMKSearchHelper/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "BMKSearchHelper/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
+   s.library   = "libbaidumapapi"
   # s.libraries = "iconv", "xml2"
 
 

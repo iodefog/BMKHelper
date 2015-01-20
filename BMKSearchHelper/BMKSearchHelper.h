@@ -22,7 +22,6 @@ typedef void(^BMKSearchHelperBlock)(id resopnse , BOOL success);
 @property (nonatomic, strong) BMKCitySearchOption       *citySearchOption;
 @property (nonatomic, strong) BMKGeoCodeSearch          *geoCodeSearch;
 @property (nonatomic, strong) BMKSearchHelperBlock      helperBlock;
-@property (nonatomic, strong) YCAddressModel            *geoCodeModel;
 
 
 + (instancetype)shareInstance;
@@ -45,7 +44,6 @@ typedef void(^BMKSearchHelperBlock)(id resopnse , BOOL success);
  */
 - (void)citySearchAddressKey:(NSString *)key cityName:(NSString *)cityName searchBlock:(BMKSearchHelperBlock)searchBlock;
 
-- (void)bmkGeoCodeSearchModel:(YCAddressModel *)addressModel searchBlock:(BMKSearchHelperBlock)searchBlock;
 
 
 @end

@@ -6,8 +6,8 @@
 //
 
 #import "BMKSearchHelper.h"
-#import "YCTools.h"
-#import "CLLocation+YCLocation.h"
+//#import "YCTools.h"
+//#import "CLLocation+YCLocation.h"
 
 @implementation BMKSearchHelper
 
@@ -51,21 +51,6 @@
     }
 }
 
-- (void)bmkGeoCodeSearchModel:(YCAddressModel *)addressModel searchBlock:(BMKSearchHelperBlock)searchBlock{
-    self.helperBlock = searchBlock;
-    BMKGeoCodeSearchOption *geoCodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
-    geoCodeSearchOption.city= addressModel.address;
-    geoCodeSearchOption.address = addressModel.addressName;
-    BOOL flag = [self.geoCodeSearch geoCode:geoCodeSearchOption];
-    if(flag)
-    {
-        NSLog(@"geo检索发送成功");
-    }
-    else
-    {
-        NSLog(@"geo检索发送失败");
-    }
-}
 
 /******
  * 百度搜索， 推荐搜索结果返回推荐关键词，拿到关键词进行更精准搜索
@@ -78,7 +63,7 @@
     // 如果_cityName 为空，就返回，避免是用 rangeOfString 函数时，崩溃
     if (!cityName) {
         searchBlock(nil, YES);
-        cityName = DefaultValueForKey(kSelectCityName) ? DefaultValueForKey(kSelectCityName) : @"北京";
+        return;
     }
     _needCitySearch = needSearch;
     if (needSearch) {
@@ -116,9 +101,9 @@
     }
     BOOL flag = [_poiSearch poiSearchInCity:_citySearchOption];
     if(flag){
-                      DLog(@"城市内检索发送成功");
+                      NSLog(@"城市内检索发送成功");
     } else {
-               DLog(@"城市内检索发送失败");
+               NSLog(@"城市内检索发送失败");
         _helperBlock(nil, NO);
     }
 }
@@ -191,8 +176,7 @@
             for (BMKPoiInfo *poiInfo in poiResult.poiInfoList) {
                 NSRange range =[poiInfo.city rangeOfString:_cityName];
                 if (range.length != 0) {
-                    NSDictionary *item = (id)[self dictionaryWithBMKPoiInfo:poiInfo];
-                    [poiAddress addObject:item];
+                    [poiAddress addObject:poiInfo];
                 }
             }
         } else {
@@ -205,66 +189,8 @@
     _helperBlock(poiAddress, YES);
 }
 
-//实现Deleage处理回调结果
-//接收正向编码结果
-
-- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
-    if (error == BMK_SEARCH_NO_ERROR) {
-        //在此处理正常结果
-        
-        CLLocation *location = [[CLLocation alloc] initWithLatitude:result.location.latitude longitude:result.location.longitude];
-        location = [location locationMarsFromBaidu];
-
-        NSString *lanlng = [NSString stringWithFormat:@"%@%@", @(location.coordinate.latitude), @(location.coordinate.longitude)];
-        self.geoCodeModel.latlng = lanlng;
-
-        self.helperBlock(location, YES);
-    }
-    else {
-        DLog(@"抱歉，未找到结果");
-        self.helperBlock(nil, NO);
-    }
-}
 
 #pragma mark - result parse
-/*******  提示搜索，返回关键词解析，并返回model， 需要根据关键词名，获取经纬度等
- *
- */
-- (NSMutableArray *)dictionaryWithKeyArray:(NSArray *)keyArray cityArray:(NSArray *)cityArray{
-    NSMutableArray *resultArray = [NSMutableArray array];
-    for (int i = 0; i < keyArray.count; i ++){
-        NSString *key = keyArray[i];
-        if ([key isKindOfClass:[NSString class]] && ![key isEqualToString:@""]) {
-            YCAddressModel *addressModel = [[YCAddressModel alloc] init];
-            addressModel.addressName = key;
-            if (i < cityArray.count) {
-                addressModel.address = cityArray[i];
-            }
-            [resultArray addObject:addressModel];
-        }
-    }
-    return resultArray;
-}
 
-/******  根据城市关键字搜索，解析并生成Model
- *
- */
-- (YCAddressModel *)dictionaryWithBMKPoiInfo:(BMKPoiInfo *)poiInfo
-{
-    if ([YCTools isBlankObject:poiInfo.address]) {
-        poiInfo.address = @"";
-    }
-    
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:poiInfo.pt.latitude longitude:poiInfo.pt.longitude];
-    location = [location locationMarsFromBaidu];
-    
-    YCAddressModel *addressModel = [[YCAddressModel alloc] init];
-    addressModel.addressState = YCAddress_Search;
-    addressModel.addressName = poiInfo.name;
-    addressModel.address = poiInfo.address;
-    addressModel.city = poiInfo.city;
-    addressModel.latlng = [NSString stringWithFormat:@"%@,%@", @(location.coordinate.latitude), @(location.coordinate.longitude)];
-    return addressModel;
-}
 
 @end
