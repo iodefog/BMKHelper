@@ -14,11 +14,11 @@
 		<string>https://github.com/lihongli528628/BMKHelper.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BMKHelper/BMKHelper.xcodeproj</string>
+	<string>BMKHelper.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C8E878BBC78A6FFB340EBF3AA6E51C1964EC000A</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/lihongli528628/BMKHelper.git</string>
