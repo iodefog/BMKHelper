@@ -26,7 +26,7 @@
 		4F1521DC1A6E67F500716500 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1521D81A6E67F500716500 /* libbaidumapapi.a */; };
 		4F1521DD1A6E67F500716500 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1521DA1A6E67F500716500 /* libbaidumapapi.a */; };
 		4F1521DE1A6E67F500716500 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4F1521DB1A6E67F500716500 /* mapapi.bundle */; };
-		4F1521E21A6E693C00716500 /* BMKSearchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1521E11A6E693C00716500 /* BMKSearchHelper.m */; };
+		4F1522181A6E826E00716500 /* BMKSearchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1522171A6E826E00716500 /* BMKSearchHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +126,8 @@
 		4F1521D81A6E67F500716500 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		4F1521DA1A6E67F500716500 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		4F1521DB1A6E67F500716500 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
-		4F1521E01A6E693C00716500 /* BMKSearchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKSearchHelper.h; sourceTree = "<group>"; };
-		4F1521E11A6E693C00716500 /* BMKSearchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKSearchHelper.m; sourceTree = "<group>"; };
+		4F1522161A6E826E00716500 /* BMKSearchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKSearchHelper.h; sourceTree = "<group>"; };
+		4F1522171A6E826E00716500 /* BMKSearchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKSearchHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		4F1520CC1A6E5C8100716500 /* BMKHelper */ = {
 			isa = PBXGroup;
 			children = (
-				4F1521DF1A6E693C00716500 /* BMKSearchHelper */,
+				4F1522151A6E826E00716500 /* BMKSearchHelper */,
 				4F1521971A6E67F500716500 /* BaiduSDK */,
 				4F1520D11A6E5C8100716500 /* AppDelegate.h */,
 				4F1520D21A6E5C8100716500 /* AppDelegate.m */,
@@ -332,13 +332,14 @@
 			path = "Release-iphonesimulator";
 			sourceTree = "<group>";
 		};
-		4F1521DF1A6E693C00716500 /* BMKSearchHelper */ = {
+		4F1522151A6E826E00716500 /* BMKSearchHelper */ = {
 			isa = PBXGroup;
 			children = (
-				4F1521E01A6E693C00716500 /* BMKSearchHelper.h */,
-				4F1521E11A6E693C00716500 /* BMKSearchHelper.m */,
+				4F1522161A6E826E00716500 /* BMKSearchHelper.h */,
+				4F1522171A6E826E00716500 /* BMKSearchHelper.m */,
 			);
-			path = BMKSearchHelper;
+			name = BMKSearchHelper;
+			path = ../../BMKSearchHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,7 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F1521E21A6E693C00716500 /* BMKSearchHelper.m in Sources */,
+				4F1522181A6E826E00716500 /* BMKSearchHelper.m in Sources */,
 				4F1520D61A6E5C8100716500 /* ViewController.m in Sources */,
 				4F1520D31A6E5C8100716500 /* AppDelegate.m in Sources */,
 				4F1520D01A6E5C8100716500 /* main.m in Sources */,
@@ -658,6 +659,7 @@
 				4F1520EF1A6E5C8100716500 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F1520F01A6E5C8100716500 /* Build configuration list for PBXNativeTarget "BMKHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -666,6 +668,7 @@
 				4F1520F21A6E5C8100716500 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
