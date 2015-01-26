@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
 
   # s.library   = "libbaidumapapi"
   # s.libraries = "iconv", "xml2"
- s.vendored_libraries = 'BMKSearchHelper/BaiduSDK/libs/*.a'
+ s.vendored_libraries = 'BMKHelper*.a'
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
