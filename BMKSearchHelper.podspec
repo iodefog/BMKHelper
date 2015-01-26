@@ -116,7 +116,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+   s.frameworks = "CoreGraphics", "Foundation","UIKit","SystemConfiguration","CoreLocation","QuartzCore","OpenGLES","MessageUI","Security"
 
   # s.library   = "libbaidumapapi"
   # s.libraries = "iconv", "xml2"
