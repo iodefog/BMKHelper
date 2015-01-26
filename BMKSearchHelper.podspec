@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   s.source_files  = "BMKSearchHelper/{h.m}", "BMKSearchHelper/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "BMKSearchHelper/**/*.h"
+  # s.public_header_files = "BMKSearchHelper/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+   s.resources = "BMKSearchHelper/BaiduSDK/mapapi.bundle/*"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -118,9 +118,9 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-   s.library   = "libbaidumapapi"
+  # s.library   = "libbaidumapapi"
   # s.libraries = "iconv", "xml2"
-
+ s.vendored_libraries = 'BMKSearchHelper/BaiduSDK/libs/*.a'
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -132,5 +132,9 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+
+s.xcconfig = { 'OTHER_LDFLAGS' => '-stdlib=libstdc++'}
+
+s.xcconfig = { 'CLANG_CXX_LIBRARY' => 'compiler-default'}
 
 end
